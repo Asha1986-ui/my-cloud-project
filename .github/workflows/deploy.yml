@@ -19,6 +19,6 @@ jobs:
           script: |
             cd my-cloud-project
             git pull
-            sudo docker stop $(sudo docker ps -q)
-            sudo docker rm $(sudo docker ps -aq)
+            sudo docker stop $(sudo docker ps -q)|| true
+            sudo docker rm $(sudo docker ps -aq)|| true
             sudo docker run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx
